@@ -2,6 +2,10 @@ from django.db import models
 from datetime import date
 from usuarios.models import Usuario
 
+
+
+
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.TextField()
@@ -10,6 +14,7 @@ class Categoria(models.Model):
         return self.nome
 
 class Livros(models.Model):
+    
     nome = models.CharField(max_length=80)
     autor = models.CharField(max_length=30)
     co_autor = models.CharField(max_length=30, blank= True, null=True)
@@ -24,8 +29,10 @@ class Livros(models.Model):
 
 
 
+ 
     class Meta:
         verbose_name='Livro'
     
     def __str__(self) -> str:
         return self.nome
+        
