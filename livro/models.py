@@ -27,6 +27,13 @@ class Livros(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     usuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, blank= True, null=True)
 
+    def get_queryset(self):
+
+        txt_nome = self.request.GET.get('nome')
+
+        livros = Livros.objects.filter(nome = txt_nome)
+    
+        return livros
 
 
  

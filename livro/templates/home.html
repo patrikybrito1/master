@@ -4,9 +4,21 @@
 {% block 'conteudo' %}
 
 <div class="container">
+  <hr>
+
+  <form action="?" method= "GET">
+    <input type="text" name="nome" id=" " value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte">
+    <button type="submit" class="btn btn-success">Buscar</button>
+    <a href="{% url 'home' %}" class= "btn btn-light">Limpar</a>
+
+    
+<form>
+<hr>
     <div class="row">
         {% for livro in livros %}
+        
             <div class="col-md">
+
                
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">

@@ -12,8 +12,14 @@ def home (request):
     else:
         return redirect('/auth/login/?status=2')
     
+
+
+    
 def ver_livros (request, id):
     if request.session.get('usuario'):
         livros = Livros.objects.get(id = id)
         return render(request, 'ver_livro.html', {'livro': livros})
     return redirect('/auth/login/?status=2')
+
+
+
