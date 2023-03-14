@@ -6,6 +6,7 @@ from usuarios.models import Usuario
 
 
 
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.TextField()
@@ -27,13 +28,10 @@ class Livros(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
     usuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, blank= True, null=True)
 
-    def get_queryset(self):
+    print (nome)
 
-        txt_nome = self.request.GET.get('nome')
 
-        livros = Livros.objects.filter(nome = txt_nome)
-    
-        return livros
+
 
 
  
