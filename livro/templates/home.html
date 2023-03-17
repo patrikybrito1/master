@@ -4,11 +4,12 @@
 {% block 'conteudo' %}
 
 
+
 <div class="container">
   <hr>
 
   <form action="?" method= "GET">
-    <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte">
+    <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Título do livro">
     <button type="submit" class="btn btn-success">Buscar</button>
     <a href="{% url 'home' %}" class= "btn btn-light">Limpar</a>
 

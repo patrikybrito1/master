@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date, timedelta
 from usuarios.models import Usuario
+from django.contrib import admin
+
 
 
 class Categoria(models.Model):
