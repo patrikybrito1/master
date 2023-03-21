@@ -2,15 +2,24 @@ from django.shortcuts import redirect, render
 from django. http import HttpResponse
 from .models import Usuario
 from hashlib import sha256
+from .models import Turma
+
 
 
 def login (request):
     status= request.GET.get('status')
     return render(request, 'login.html', {'status': status})
 
+def turma (request):
+    turmas = Turma.objects.all()
+    return render(request, "cadastro.html",{'turmas':turmas})
+
 def cadastro (request):
     status = request.GET.get('status')
     return render(request,'cadastro.html', {'status': status})
+    
+    
+
 
 def valida_cadastro(request):
     nome = request.POST.get('nome')
@@ -59,3 +68,8 @@ def valida_login(request):
 def sair(request):
     request.session.flush()
     return redirect('/auth/login/')
+
+
+def turma(request):
+    results = Usuario.objects.all
+    return render (request, "cadastro.html", {"turma"})
