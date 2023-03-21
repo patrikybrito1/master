@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date, timedelta
-from usuarios.models import Usuario
+from usuarios.models import Usuario, Turma
 from django.contrib import admin
 
 
@@ -28,6 +28,11 @@ class Livros(models.Model):
    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
    usuario = models.ForeignKey(
        Usuario, on_delete=models.DO_NOTHING, blank=True, null=True)
+   nome_turma = models.ForeignKey(
+        Turma, on_delete=models.DO_NOTHING, blank=True, null=True)
+#    nome_turma = models.CharField(max_length=20, choices=Turma.lista_turma, null=True)
+   
+
 
 
    def save(self, *args, **kwargs):
