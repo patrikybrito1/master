@@ -14,7 +14,10 @@ class Categoria(models.Model):
        return self.nome
 
 
+
+
 class Livros(models.Model):
+   img = models.FileField(upload_to='capa_livro', null=True, blank=True)
    nome = models.CharField(max_length=80)
    autor = models.CharField(max_length=30)
    co_autor = models.CharField(max_length=30, blank=True, null=True)
@@ -30,7 +33,7 @@ class Livros(models.Model):
        Usuario, on_delete=models.DO_NOTHING, blank=True, null=True)
    nome_turma = models.ForeignKey(
         Turma, on_delete=models.DO_NOTHING, blank=True, null=True)
-#    nome_turma = models.CharField(max_length=20, choices=Turma.lista_turma, null=True)
+
    
 
 

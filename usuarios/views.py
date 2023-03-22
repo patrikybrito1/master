@@ -22,6 +22,7 @@ def valida_cadastro(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
     turma = request.POST.get('turma')
+    telefone = request.POST.get('telefone')
 
     usuario = Usuario.objects.filter(email=email)
 
@@ -39,6 +40,7 @@ def valida_cadastro(request):
         usuario = Usuario(nome=nome,
                           senha=senha,
                           email=email,
+                          telefone = telefone,
                           )
         if turma:
             usuario.turma = Turma.objects.get(id=turma)
