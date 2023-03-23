@@ -14,6 +14,10 @@
     
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="{% url 'home' %}">BIBLIOTECA</a>
+      {% if usuario_logado%}
+
+         <a href="{% url 'sair' %}"  type="button"  class="btn btn-danger">Sair</a>
+      {%endif%}
     </nav>
 
     {% block 'conteudo' %} {% endblock %} 

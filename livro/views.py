@@ -9,7 +9,8 @@ def home(request):
         txt_name = request.GET.get('nome')
         usuario = Usuario.objects.get(id=request.session['usuario'])
         livros = Livros.objects.filter(nome__icontains=txt_name or '')
-        return render(request, 'home.html', {'livros': livros})
+
+        return render(request, 'home.html', {'livros': livros, 'usuario_logado':request.session.get('usuario')})
 
     else:
         return redirect('/auth/login/?status=2')
@@ -18,5 +19,6 @@ def home(request):
 def ver_livros(request, id):
     if request.session.get('usuario'):
         livros = Livros.objects.get(id=id)
-        return render(request, 'ver_livro.html', {'livro': livros})
+        return render(request, 'ver_livro.html', {'livro': livros, 'usuario_logado':request.session.get('usuario')})
     return redirect('/auth/login/?status=2')
+

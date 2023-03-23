@@ -4,9 +4,12 @@
 {% block 'conteudo' %} 
 
     <div class="container">
-
-   
-        
+      <div class="row">
+        <div class="col-lg-6">
+          <br>
+          <img width="80%" src="{{livro.img.url}}">
+        </div>
+        <div class="col-lg-6">
         <p> 
           <label>Título: </label>
           <input class="form-control" type="text" value="{{livro.nome}}">
@@ -26,7 +29,9 @@
           <label>Data de cadastro: </label>
           <input style="width: 40%;" class="form-control" type="text" value="{{livro.data_cadastro}}">
         </p>
-        <img position="absolute" right="0px" float="right" width="50%" src="{{livro.img.url}}">
+        
+        
+        
         <br>
 
         <h1 style="display: inline;" class="card-subtitle mb-2 text-muted">Disponível: </h1>
@@ -46,8 +51,8 @@
         {% endif %}
         <br>
         <button> Histórico de emprestimo </button>
-        
-    
+      </div>
+      </div>
     </div>
 
 
