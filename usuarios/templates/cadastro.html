@@ -1,15 +1,4 @@
 
-<style>
-  .turmas{
-    border: 2px solid #495057;
-    background-color: #6c757d;
-    padding-inline: 10px;
-    padding-block:10px;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
-  }
-</style>
 {% extends 'base.html' %}
 
 {% block 'titulo' %} cadastro {% endblock %}
@@ -60,6 +49,16 @@
       <hr>
       <form method="POST" action="{% url 'valida_cadastro' %}">{%csrf_token%}
 
+        
+        <h6>Turma:</h6>
+        <div class="dropdown">
+          <select name="turma" id="turma" class="btn btn-light">
+            {%for turma in turmas %}
+            <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <br>
         <label>Nome</label>
         <input name="nome" class="form-control" type="text" placeholder="Nome...">
         <br>
@@ -72,16 +71,7 @@
         <label>Senha</label>
         <input name="senha" class="form-control" type="password" placeholder="Senha...">
         <br>
-        <h6>Turma:</h6>
-        <div class="dropdown">
-          <select name="turma" id="turma" class="btn btn-primary">
-            {%for turma in turmas %}
-            <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
-            {%endfor%}
-          </select>
-        </div>
-        
-        <br>
+      
         <input class="btn btn-info btn-lg" type="submit" value="Enviar">
         <a href="{%url 'login' %}" class="btn btn-warning btn-lg"> Login </a>
       </form>
