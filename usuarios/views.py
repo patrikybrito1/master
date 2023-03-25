@@ -75,3 +75,5 @@ def sair(request):
 def turma(request):
     results = Usuario.objects.all()
     return render(request, "cadastro.html", {"turma": results})
+
+

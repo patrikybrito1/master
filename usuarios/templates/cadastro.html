@@ -1,3 +1,17 @@
+<style>
+  body {height: 100%;}
+  .row-tell {
+    display: flex;
+    gap:1rem;
+  }
+  .row-tell div {
+    width: 100%;
+  }
+  .container {
+    height: 100%;
+  }
+</style>
+
 
 {% extends 'base.html' %}
 
@@ -50,7 +64,7 @@
       <form method="POST" action="{% url 'valida_cadastro' %}">{%csrf_token%}
 
         
-        <h6>Turma:</h6>
+        <label name="turma">Turma:</label>
         <div class="dropdown">
           <select name="turma" id="turma" class="btn btn-light">
             {%for turma in turmas %}
@@ -65,8 +79,24 @@
         <label>Email</label>
         <input name="email" class="form-control" type="text" placeholder="Email...">
         <br>
+        <div class="row-tell">
+          <div>
         <label>Telefone</label>
         <input name="telefone" class="form-control" type="text" placeholder="(00) 0000-0000">
+      </div>
+      <div>
+
+        <label name="turma">Turma:</label>
+        <div class="dropdown">
+          <select name="turma" id="turma" class="btn btn-light">
+            {%for turma in turmas %}
+            <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
+            {%endfor%}
+          </select>
+        </div>
+      </div>
+
+      </div>
         <br>
         <label>Senha</label>
         <input name="senha" class="form-control" type="password" placeholder="Senha...">
