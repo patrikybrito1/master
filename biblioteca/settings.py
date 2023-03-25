@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-#d&xj-j^$hqo5y4n2_k(0yqdc^#4yx+^06e$r(z2&(9jfhy5!@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://biblioteca.up.railway.app', 'biblioteca.up.railway.app', 'https://0.0.0.0',
-                 'http://0.0.0.0', 'http://127.0.0.1', 'https://127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
