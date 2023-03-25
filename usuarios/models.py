@@ -13,6 +13,7 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=30)
     email = models.EmailField()
     senha = models.CharField(max_length=64)
+    telefone = models.CharField(max_length=11)
     turma = models.ForeignKey(
         Turma, on_delete=models.DO_NOTHING,blank=True, null=True)
     

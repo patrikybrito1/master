@@ -1,15 +1,18 @@
-
 <style>
-  .turmas{
-    border: 2px solid #495057;
-    background-color: #6c757d;
-    padding-inline: 10px;
-    padding-block:10px;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
+  body {height: 100%;}
+  .row-tell {
+    display: flex;
+    gap:1rem;
+  }
+  .row-tell div {
+    width: 100%;
+  }
+  .container {
+    height: 100%;
   }
 </style>
+
+
 {% extends 'base.html' %}
 
 {% block 'titulo' %} cadastro {% endblock %}
@@ -60,24 +63,45 @@
       <hr>
       <form method="POST" action="{% url 'valida_cadastro' %}">{%csrf_token%}
 
+        
+        <label name="turma">Turma:</label>
+        <div class="dropdown">
+          <select name="turma" id="turma" class="btn btn-light">
+            {%for turma in turmas %}
+            <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <br>
         <label>Nome</label>
         <input name="nome" class="form-control" type="text" placeholder="Nome...">
         <br>
         <label>Email</label>
         <input name="email" class="form-control" type="text" placeholder="Email...">
         <br>
-        <label>Senha</label>
-        <input name="senha" class="form-control" type="password" placeholder="Senha...">
-        <br>
+        <div class="row-tell">
+          <div>
+        <label>Telefone</label>
+        <input name="telefone" class="form-control" type="text" placeholder="(00) 0000-0000">
+      </div>
+      <div>
+
+        <label name="turma">Turma:</label>
         <div class="dropdown">
-          <select name="turma" id="turma" class="turmas">
+          <select name="turma" id="turma" class="btn btn-light">
             {%for turma in turmas %}
             <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
             {%endfor%}
           </select>
         </div>
-        
+      </div>
+
+      </div>
         <br>
+        <label>Senha</label>
+        <input name="senha" class="form-control" type="password" placeholder="Senha...">
+        <br>
+      
         <input class="btn btn-info btn-lg" type="submit" value="Enviar">
         <a href="{%url 'login' %}" class="btn btn-warning btn-lg"> Login </a>
       </form>
