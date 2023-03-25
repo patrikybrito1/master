@@ -61,7 +61,8 @@
     <div class="col-md">
       <h1> Cadastre-se</h1>
       <hr>
-      <form method="POST" action="{% url 'valida_cadastro' %}">{%csrf_token%}
+      <form method="POST" action="{% url 'valida_cadastro' %}">
+        <!-- {%csrf_token%} -->
 
         
         <label name="turma">Turma:</label>
