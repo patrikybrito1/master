@@ -143,3 +143,4 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1', 'https://*.up.railway.app']
 CSRF_COOKIE_SECURE=False
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
