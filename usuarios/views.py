@@ -4,8 +4,10 @@ from django. http import HttpResponse
 from .models import Usuario
 from hashlib import sha256
 from .models import Turma
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def login(request):
     status = request.GET.get('status')
     return render(request, 'login.html', {'status': status})
