@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Livros, Categoria, Turma, Emprestimos
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
+# @csrf_exempt
 class SearchBook(admin.ModelAdmin):
     search_fields = ['nome']
 
