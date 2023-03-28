@@ -12,13 +12,13 @@ def login(request):
     status = request.GET.get('status')
     return render(request, 'login.html', {'status': status})
 
-
+@csrf_exempt
 def cadastro(request):
     status = request.GET.get('status')
     turmas = Turma.objects.all()
     return render(request, 'cadastro.html', {'status': status, 'turmas': turmas})
 
-
+@csrf_exempt
 def valida_cadastro(request):
     nome = request.POST.get('nome')
     email = request.POST.get('email')
@@ -52,7 +52,7 @@ def valida_cadastro(request):
     except:
         return redirect('/auth/cadastro/?status=4')
 
-
+@csrf_exempt
 def valida_login(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
