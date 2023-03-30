@@ -1,7 +1,6 @@
 from django.db import models
-from datetime import date, timedelta
+from datetime import date
 from usuarios.models import Usuario, Turma
-from django.contrib import admin
 
 class Categoria(models.Model):
    nome = models.CharField(max_length=50)
@@ -17,7 +16,7 @@ class Livros(models.Model):
    autor = models.CharField(max_length=30)
    co_autor = models.CharField(max_length=30, blank=True, null=True)
    data_cadastro = models.DateField(default=date.today)
-
+   esta_emprestado = models.BooleanField(editable=False, default=False)
    def __str__(self) -> str:
        return self.nome
    class Meta:
@@ -40,16 +39,22 @@ class Emprestimos(models.Model):
     nome_turma = models.ForeignKey(
         Turma, on_delete=models.DO_NOTHING, blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
+    esta_emprestado = models.BooleanField(default=False)
+    
     def __str__(self) -> str:
-       return self.usuario.nome
+       return self.emprestado.nome
     class Meta:
        verbose_name = 'Emprestimo'
    
     def save(self, *args, **kwargs):
+       test = self.emprestado
+       test.esta_emprestado = self.esta_emprestado
+       test.save()
        if self.data_emprestimo and self.data_devolucao:
            self.tempo_duracao = self.data_devolucao - self.data_emprestimo
        else:
            self.tempo_duracao = None
+       self.emprestado.esta_emprestado = self.esta_emprestado
        super(Emprestimos, self).save(*args, **kwargs)
 
 

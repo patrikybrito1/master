@@ -63,15 +63,7 @@
       <hr>
       <form method="POST" action="{% url 'valida_cadastro' %}">{%csrf_token%}
 
-        
-        <label name="turma">Turma:</label>
-        <div class="dropdown">
-          <select name="turma" id="turma" class="btn btn-light">
-            {%for turma in turmas %}
-            <option class="dropdown-item" value="{{turma.id}}" href="#">{{turma.nome}}</option>
-            {%endfor%}
-          </select>
-        </div>
+
         <br>
         <label>Nome</label>
         <input name="nome" class="form-control" type="text" placeholder="Nome...">
