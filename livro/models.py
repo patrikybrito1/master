@@ -40,6 +40,7 @@ class Livros(models.Model):
            self.editable = False
        else:
            self.editable = True
+           self.nome = self.nome.replace("(Indisponível)", "")
        super().save(*args, **kwargs)
 
 class Emprestimos(models.Model):
