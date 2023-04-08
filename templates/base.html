@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    {% block 'head' %} {% endblock %}
+    <title>{% block 'titulo' %} {% endblock %}</title>
+    <style>
+      .devs-btn {
+        margin-inline-end: 1.5rem;
+      }
+      .logo {
+        display: block;
+        width: 5rem;
+        height: 5rem;
+        background: url("/static/imagens/logo-removebg-preview.png") no-repeat;
+        background-size: cover;
+      }
+      .navbar {
+        padding: 0 0.5rem;
+      }
+      @media screen and (max-width: 770px) {
+        .navbar {
+          position: relative;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          -ms-flex-align: center;
+          align-items: center;
+          -ms-flex-pack: justify;
+          justify-content: center;
+          font-size: 2rem;
+          gap: 0.2rem;
+        }
+        .navbar-brand {
+          display: inline-block;
+          padding-top: 0.3125rem;
+          padding-bottom: 0.3125rem;
+          margin-right: 1rem;
+          font-size: 0.9rem;
+          line-height: inherit;
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <!-- <img
+        href="{% url 'home' %}"
+        style="width: 3rem; height: 3rem"
+        src="/static/imagens/logo-removebg-preview.png"
+      /> -->
+      <div class="logo"></div>
+      <a class="navbar-brand" href="{% url 'home' %}"
+        >BIBLIOTECA - ENE JOSE DE PAIVA GADELHA</a
+      >
+      <div>
+        <a href="#" type="button" class="btn btn-light devs-btn"
+        data-toggle="modal" data-target="#exampleModal"
+          >Desenvolvedores</a
+        >
+
+        {% if usuario_logado%}
+
+        <a href="{% url 'sair' %}" type="button" class="btn btn-danger">Sair</a>
+        {%endif%}
+      </div>
+    </nav>
+
+    {% block 'conteudo' %} {% endblock %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md">
+          <br />
+        </div>
+
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Desenvolvedores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Professor: Patriky Brito<br><br>  
+            programadores:<br>
+            ... <br>
+            Design:<br>
+            ...<br>
+            Administração de Bando de dados:<br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
